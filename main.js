@@ -1,4 +1,4 @@
-import * as THREE from './lib/three.module.js';
+import * as THREE from './1-three.module.js';
 
 /* ============================================================
    THE STACKS - a library, after closing

@@ -1,0 +1,47 @@
+:root{
+  --black:#060504;
+  --bone:#d8d2c4;
+  --dim:#6b6455;
+  --amber:#c99a4e;
+  --red:#8e2f22;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html,body{width:100%;height:100%;background:var(--black);overflow:hidden}
+body{font-family:'Cormorant Garamond',Georgia,'Times New Roman',serif;color:var(--bone);
+  -webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility;cursor:default}
+#game{position:fixed;inset:0;width:100%;height:100%;display:block}
+
+/* film layers */
+#vignette{position:fixed;inset:0;pointer-events:none;z-index:3;
+  background:radial-gradient(ellipse at center,transparent 42%,rgba(0,0,0,.88) 100%);
+  transition:opacity .3s}
+#grain{position:fixed;inset:-128px;pointer-events:none;z-index:4;opacity:.05;
+  background-repeat:repeat}
+
+/* HUD */
+#hud{position:fixed;inset:0;pointer-events:none;z-index:5}
+#reticle{position:absolute;left:50%;top:50%;width:3px;height:3px;margin:-1.5px;
+  border-radius:50%;background:rgba(216,210,196,.55)}
+#pages{position:absolute;left:34px;bottom:28px;font-size:15px;letter-spacing:.32em;
+  text-transform:uppercase;color:var(--dim)}
+#pages b{color:var(--bone);font-weight:400}
+#objective{position:absolute;top:44px;left:0;right:0;text-align:center;font-size:17px;
+  font-style:italic;letter-spacing:.14em;color:var(--dim);opacity:0;transition:opacity 1.6s}
+#prompt{position:absolute;left:0;right:0;bottom:96px;text-align:center;font-size:15px;
+  letter-spacing:.42em;text-transform:uppercase;color:var(--amber);opacity:0;transition:opacity .25s}
+
+/* screens */
+.screen{position:fixed;inset:0;z-index:10;display:flex;align-items:center;justify-content:center;
+  background:rgba(4,3,3,.92);text-align:center;transition:opacity .8s}
+.screen.hidden{opacity:0;pointer-events:none}
+.screen h1{font-weight:300;font-size:42px;letter-spacing:.45em;text-indent:.45em;color:var(--bone)}
+.screen .rule{width:56px;height:1px;background:var(--dim);margin:26px auto;opacity:.7}
+.screen .sub{font-style:italic;font-size:19px;color:var(--dim);letter-spacing:.1em}
+.screen .brief{margin-top:18px;font-size:16px;letter-spacing:.18em;color:var(--bone);opacity:.75}
+.screen .go{margin-top:44px;font-size:14px;letter-spacing:.5em;text-indent:.5em;text-transform:uppercase;
+  color:var(--amber);cursor:pointer;transition:color .3s}
+.screen .go:hover{color:#e8c584}
+.screen .controls{position:absolute;bottom:36px;left:0;right:0;font-size:12.5px;
+  letter-spacing:.28em;color:var(--dim);text-transform:lowercase}
+.screen.dead h1{color:var(--red)}
+.screen .stat{margin-top:14px;font-size:15px;letter-spacing:.22em;color:var(--dim)}
